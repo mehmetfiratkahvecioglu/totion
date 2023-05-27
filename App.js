@@ -5,6 +5,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Todos from "./src/screens/Todos";
 import TodoDetail from "./src/screens/TodoDetail";
+import Weathers from "./src/screens/Weathers";
+import WeatherDetail from "./src/screens/WeatherDetail";
 const Stack = createNativeStackNavigator();
 
 const TodosStack = () => {
@@ -16,14 +18,14 @@ const TodosStack = () => {
   );
 };
 
-function SettingsScreen() {
+const WeatherStack = () => {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Settings!</Text>
-    </View>
+    <Stack.Navigator>
+      <Stack.Screen name="Weathers" component={Weathers} />
+      <Stack.Screen name="WeatherDetail" component={WeatherDetail} />
+    </Stack.Navigator>
   );
-}
-
+};
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -37,7 +39,13 @@ export default function App() {
             headerShown: false,
           }}
         />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen
+          name="WeatherStack"
+          component={WeatherStack}
+          options={{
+            headerShown: false,
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
