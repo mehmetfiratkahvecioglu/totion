@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import Cards from "./Cards";
-
+import { StatusBar } from "expo-status-bar";
 export default function Wheathers({ navigation }) {
   const [city, setCity] = useState("");
 
@@ -46,6 +46,7 @@ export default function Wheathers({ navigation }) {
       style={{ flex: 1 }}
       imageStyle={{ opacity: 1, backgroundColor: "black" }}
     >
+      <StatusBar style="light" />
       <View
         style={{
           paddingVertical: 20,

@@ -2,7 +2,7 @@ import { View, ImageBackground, Image, Text } from "react-native";
 import React, { useEffect, useState } from "react";
 import { deviceHeight, deviceWidth } from "./Dimensions";
 import { API_KEY } from "../Constants";
-
+import { StatusBar } from "expo-status-bar";
 export default function Details(props) {
   const [data, setData] = useState();
   const { name } = props.route.params;
@@ -40,6 +40,7 @@ export default function Details(props) {
       }}
       imageStyle={{ opacity: 1, backgroundColor: "black" }}
     >
+      <StatusBar style="light" />
       {data ? (
         <View
           style={{

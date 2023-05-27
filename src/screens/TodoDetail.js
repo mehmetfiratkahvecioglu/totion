@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, ImageBackground } from "react-native";
 import React from "react";
-
+import { StatusBar } from "expo-status-bar";
 const TodoDetail = ({ navigation, route }) => {
   const { todo } = route.params;
   return (
@@ -8,6 +8,7 @@ const TodoDetail = ({ navigation, route }) => {
       source={require("../../assets/images/image1.jpg")}
       style={styles.container}
     >
+      <StatusBar style="light" />
       <View
         style={{
           margin: 20,

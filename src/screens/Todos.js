@@ -10,6 +10,7 @@ import {
   ImageBackground,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { StatusBar } from "expo-status-bar";
 
 const Todos = ({ navigation }) => {
   const [todoText, setTodoText] = useState("");
@@ -73,6 +74,7 @@ const Todos = ({ navigation }) => {
       source={require("../../assets/images/image2.jpg")}
       style={styles.container}
     >
+      <StatusBar style="light" />
       <FlatList
         data={todos}
         keyExtractor={(item) => item.id.toString()}
