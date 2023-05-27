@@ -30,6 +30,9 @@ const TodoDetail = ({ navigation, route }) => {
           {todo.text}
         </Text>
       </View>
+      <Text style={{ color: "white", position: "absolute", bottom: 50 }}>
+        Totion Super App
+      </Text>
     </ImageBackground>
   );
 };
