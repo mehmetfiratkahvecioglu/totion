@@ -14,18 +14,25 @@ export default function Cards({ name, image, navigation }) {
         imageStyle={{ borderRadius: 16 }}
       />
       <View style={{ position: "absolute", height: "100%", width: "100%" }}>
-        <Text
+        <View
           style={{
-            fontSize: 28,
-            width: "100%",
-            height: "100%",
-            textAlign: "center",
-            textAlignVertical: "center",
-            color: "black",
+            backgroundColor: "rgba(255,255,255,0.5)",
+            borderRadius: 16,
+            borderBottomLeftRadius: 0,
+            borderBottomRightRadius: 0,
           }}
         >
-          {name}
-        </Text>
+          <Text
+            style={{
+              fontSize: 28,
+              textAlign: "center",
+              textAlignVertical: "center",
+              color: "black",
+            }}
+          >
+            {name}
+          </Text>
+        </View>
       </View>
     </TouchableOpacity>
   );

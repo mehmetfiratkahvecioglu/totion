@@ -8,7 +8,6 @@ import {
   FlatList,
 } from "react-native";
 import React, { useState } from "react";
-import { deviceHeight, deviceWidth } from "./Dimensions";
 import Cards from "./Cards";
 
 export default function Wheathers({ navigation }) {
@@ -16,8 +15,12 @@ export default function Wheathers({ navigation }) {
 
   const cities = [
     {
-      name: "New Delhi",
-      image: require("../../assets/images/image3.jpg"),
+      name: "Manisa",
+      image: require("../../assets/images/Manisa.jpeg"),
+    },
+    {
+      name: "İzmir",
+      image: require("../../assets/images/izmir.jpg"),
     },
     {
       name: "New York",
