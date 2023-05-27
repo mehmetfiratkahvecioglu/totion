@@ -1,12 +1,35 @@
-import { SafeAreaView, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ImageBackground } from "react-native";
 import React from "react";
 
 const TodoDetail = ({ navigation, route }) => {
   const { todo } = route.params;
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>{todo.text}</Text>
-    </SafeAreaView>
+    <ImageBackground
+      source={require("../../assets/images/image1.jpg")}
+      style={styles.container}
+    >
+      <View
+        style={{
+          margin: 20,
+          padding: 20,
+          backgroundColor: "rgba(0,0,0,0.7)",
+          borderRadius: 20,
+          minHeight: 200,
+          width: "90%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Text
+          style={{
+            color: "white",
+            fontSize: 20,
+          }}
+        >
+          {todo.text}
+        </Text>
+      </View>
+    </ImageBackground>
   );
 };
 

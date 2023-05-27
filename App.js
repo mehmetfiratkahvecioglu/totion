@@ -12,7 +12,14 @@ const Stack = createNativeStackNavigator();
 
 const TodosStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "black",
+        },
+        headerTintColor: "white",
+      }}
+    >
       <Stack.Screen name="Todos" component={Todos} />
       <Stack.Screen name="TodoDetail" component={TodoDetail} />
     </Stack.Navigator>
@@ -21,7 +28,14 @@ const TodosStack = () => {
 
 const WeatherStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "black",
+        },
+        headerTintColor: "white",
+      }}
+    >
       <Stack.Screen name="Weathers" component={Weathers} />
       <Stack.Screen name="WeatherDetail" component={WeatherDetail} />
     </Stack.Navigator>
@@ -30,7 +44,14 @@ const WeatherStack = () => {
 
 const MapStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "black",
+        },
+        headerTintColor: "white",
+      }}
+    >
       <Stack.Screen name="Map" component={Map} />
     </Stack.Navigator>
   );
@@ -40,7 +61,15 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarStyle: {
+            backgroundColor: "black",
+            borderTopWidth: 0,
+            elevation: 0,
+          },
+        }}
+      >
         <Tab.Screen
           name="TodosStack"
           component={TodosStack}
