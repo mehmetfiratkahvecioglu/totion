@@ -7,6 +7,7 @@ import Todos from "./src/screens/Todos";
 import TodoDetail from "./src/screens/TodoDetail";
 import Weathers from "./src/screens/Weathers";
 import WeatherDetail from "./src/screens/WeatherDetail";
+import Map from "./src/screens/Map";
 const Stack = createNativeStackNavigator();
 
 const TodosStack = () => {
@@ -26,6 +27,14 @@ const WeatherStack = () => {
     </Stack.Navigator>
   );
 };
+
+const MapStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Map" component={Map} />
+    </Stack.Navigator>
+  );
+};
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -42,6 +51,13 @@ export default function App() {
         <Tab.Screen
           name="WeatherStack"
           component={WeatherStack}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Tab.Screen
+          name="MapStack"
+          component={MapStack}
           options={{
             headerShown: false,
           }}

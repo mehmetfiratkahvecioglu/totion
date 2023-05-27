@@ -7,6 +7,7 @@ import {
   FlatList,
   StyleSheet,
   Pressable,
+  ImageBackground,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -68,7 +69,10 @@ const Todos = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <ImageBackground
+      source={require("../../assets/images/image2.jpg")}
+      style={styles.container}
+    >
       <FlatList
         data={todos}
         keyExtractor={(item) => item.id.toString()}
@@ -80,8 +84,18 @@ const Todos = ({ navigation }) => {
         onChangeText={(text) => setTodoText(text)}
         style={styles.input}
       />
-      <Button title="Add" onPress={addTodo} />
-    </View>
+      <View
+        style={{
+          backgroundColor: "rgba(255,255,255,1)",
+          borderRadius: 10,
+          width: 100,
+          alignSelf: "center",
+          marginTop: 10,
+        }}
+      >
+        <Button title="Add" onPress={addTodo} />
+      </View>
+    </ImageBackground>
   );
 };
 
@@ -93,6 +107,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     padding: 20,
     justifyContent: "center",
+    opacity: 1,
   },
   input: {
     borderWidth: 1,
@@ -101,6 +116,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     borderRadius: 6,
     marginTop: 10,
+    backgroundColor: "rgba(255,255,255,0.9)",
   },
   item: {
     padding: 10,
@@ -111,5 +127,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     margin: 10,
+    backgroundColor: "rgba(255,255,255,0.7)",
   },
 });
