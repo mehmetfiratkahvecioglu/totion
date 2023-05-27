@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -7,14 +7,41 @@ import {
   FlatList,
   StyleSheet,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Todos = () => {
   const [todoText, setTodoText] = useState("");
   const [todos, setTodos] = useState([]);
 
+  useEffect(() => {
+    loadTodos();
+  }, []);
+
+  const loadTodos = async () => {
+    try {
+      const savedTodos = await AsyncStorage.getItem("todos");
+      if (savedTodos !== null) {
+        setTodos(JSON.parse(savedTodos));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const saveTodos = async (todosToSave) => {
+    try {
+      const todosJSON = JSON.stringify(todosToSave);
+      await AsyncStorage.setItem("todos", todosJSON);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const addTodo = () => {
     if (todoText) {
-      setTodos([...todos, { id: Date.now(), text: todoText }]);
+      const newTodo = { id: Date.now(), text: todoText };
+      const updatedTodos = [...todos, newTodo];
+      setTodos(updatedTodos);
+      saveTodos(updatedTodos);
       setTodoText("");
     }
   };
@@ -22,6 +49,7 @@ const Todos = () => {
   const deleteTodo = (id) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
+    saveTodos(updatedTodos);
   };
 
   const renderItem = ({ item }) => {
