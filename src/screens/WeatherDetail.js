@@ -12,7 +12,10 @@ export default function Details(props) {
       `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${API_KEY}`
     )
       .then((res) => res.json())
-      .then((res) => setData(res))
+      .then((res) => {
+        setData(res);
+        console.log(res);
+      })
       .catch((err) => console.log(err));
   }, []);
 
