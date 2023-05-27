@@ -6,10 +6,11 @@ import {
   Button,
   FlatList,
   StyleSheet,
+  Pressable,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const Todos = () => {
+const Todos = ({ navigation }) => {
   const [todoText, setTodoText] = useState("");
   const [todos, setTodos] = useState([]);
 
@@ -54,10 +55,15 @@ const Todos = () => {
 
   const renderItem = ({ item }) => {
     return (
-      <View style={styles.item}>
+      <Pressable
+        style={styles.item}
+        onPress={() => {
+          navigation.navigate("TodoDetail", { todo: item });
+        }}
+      >
         <Text>{item.text}</Text>
         <Button title="Delete" onPress={() => deleteTodo(item.id)} />
-      </View>
+      </Pressable>
     );
   };
 

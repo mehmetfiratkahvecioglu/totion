@@ -4,14 +4,14 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Todos from "./src/screens/Todos";
-
+import TodoDetail from "./src/screens/TodoDetail";
 const Stack = createNativeStackNavigator();
 
 const TodosStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Todos" component={Todos} />
-      {/* Diğer profile stack ekranlarını buraya ekleyin */}
+      <Stack.Screen name="TodoDetail" component={TodoDetail} />
     </Stack.Navigator>
   );
 };
